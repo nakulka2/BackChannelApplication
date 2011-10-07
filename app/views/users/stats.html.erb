@@ -1,0 +1,25 @@
+<img width="100%" src="../images/banner1.png"  border=0 />
+<h1>Listing user statistics</h1>
+
+<table border="1">
+<tr>
+<th>Username</th>
+<th>No of Posts</th>
+<th>No of Replies</th>
+<th>No of votes</th>
+</tr>
+
+<% for i in 0 .. @users.count-1 %>
+<tr>
+<td><%= @users[i].username %></td>
+<td><%= @user_posts_count[i] %></td>
+<td><%= @user_replies_count[i] %></td>
+<td><%= @user_votes_count[i] %></td>
+</tr>
+<% end %>
+</table>
+
+<br />
+<br/>
+<br/>
+<%= link_to 'Home', administrator_index_path %>

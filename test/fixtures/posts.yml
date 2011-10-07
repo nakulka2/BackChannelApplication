@@ -1,0 +1,16 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/Fixtures.html
+
+one:
+  #post_owner: "Munawira "
+  question: "What is the question?"
+
+two:
+  #post_owner: " yghgfhgf "
+  question: "Where is the question?"
+
+
+#<%(1..5).each do |i|%>
+#data_<%= i%>
+#post_owner: user<%= i%>
+#question: Question<%= i%>
+#<%end%>

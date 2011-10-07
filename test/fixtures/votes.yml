@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/Fixtures.html
+
+one:
+  voter: MyString
+  vtype: MyString
+  pr_id: 1
+
+two:
+  voter: MyString
+  vtype: MyString
+  pr_id: 1

@@ -1,0 +1,104 @@
+<img width="100%" src="../images/banner1.png"  border=0 />
+
+<table  width=100%>
+
+  <tr>
+    <td>
+      <%= form_tag('post/search') do %>
+      <label for="search_label">Search</label> :
+         <%= text_field_tag('search_string') %>
+         <%= submit_tag "Search" %>
+          <br>
+      <%= radio_button_tag(:stype, "user") %>
+      <%= label_tag(:by_user, "by user") %>
+      <%= radio_button_tag(:stype, "content") %>
+      <%= label_tag(:by_content, "by content") %>
+
+      <% end %>
+    </td>
+
+    <td>
+      <% if flash[:login_user]  %>
+       <p style="font-size: 15px" align="right"><%=h flash[:login_user] %></p>
+          <% if flash[:admin_logged_in] %>
+    <p align=right><%= link_to 'Home', administrator_index_path %> for admin user</p>
+    <% end %>
+
+       <p style="font-size: 15px"align="right"><%= link_to 'Logout', :controller=>'logout', :action=>'index' %></p>
+
+      <% else %>
+       <p style="font-size: 16px"align="right"><%= link_to 'Login', :controller=>'login', :action=>'index' %></p>
+       <% end %>
+
+
+    </td>
+  </tr>
+</table>
+
+
+<p style="font-size: 16px"><%= link_to 'New Post', new_post_path %></p>
+
+<html>
+<head>
+<script type="text/JavaScript">
+<!--
+function timedRefresh(timeoutPeriod) {
+	//setTimeout("location.reload(true);",timeoutPeriod);
+}
+//   -->
+</script>
+</head>
+<body onload="JavaScript:timedRefresh(10000);">
+
+<%= flash[:message]  %>
+
+
+<table width=100% style="border:2px solid #000000 " rules="all">
+  <tr>
+    <th align=center style="font-size: 20px"width=10% bgcolor="#CDC3F7"><br>user<br></th>
+    <th align=center style="font-size: 20px" bgcolor="#CDC3F7" width=80% ><br>Question<br></th>
+    <th align=center style="font-size: 20px"bgcolor="#CDC3F7" width=10% ><br>Votes<br></th>
+   </tr>
+
+<% @posts.each do |post| %>
+
+      <tr style="border:1px solid #000000 ">
+    <td align="center" style="background-color: #E0DEFA;"><b>Question:</b></td>
+    <td style="background-color: #E0DEFA; "  >    &nbsp;<%= post.question %>
+    <p align="right" style="background-color: #E0DEFA;">posted by: <%= post.post_owner%>, at:<%= post.created_at.to_date %> &nbsp;&nbsp;   <%= link_to 'Reply', new_reply_path(:post_pid => post.id) %></p></td>
+    <td align="center" style="background-color: #99ffff;">
+     <%= Vote.count(:pr_id,:conditions => ['pr_id = ? AND vtype = ?', post.id,"p" ]) %><br>
+     <%= link_to 'Vote',:controller=>"votes", :action =>"new",:pr_id=>post.id, :vtype => "p" %></td>
+
+    <% if Reply.exists?(:post_id => post.id) %>
+    <tr><td align="center"  style="background-color: #F1F1F8;"><b>Replies: </b></td>
+     <td ><table  width=100% rules="all" style="border:1px solid #000000 ">
+    <% @sel_reply = Reply.find_all_by_post_id(post.id) %>
+
+    <% for r in @sel_reply %>
+       <tr >
+       <% @user=User.find(r.user_id) %>
+      <td  width=90% style="background-color: #F1F1F8;"><%= @user.username%>: <%= r.response  %></td>
+         <td width=10% align="center" style="background-color: #99ffff;"><%= Vote.count(:pr_id,:conditions => ['pr_id = ? AND vtype = ?', r.id,"r" ]) %><br>
+         <%= link_to 'Vote',:controller=>"votes", :action =>"new",:pr_id=>r.id, :vtype => "r" %></td>
+
+       </tr>
+       <% end %>
+       </table></td>
+
+       <td  style="background-color: #F1F1F8;">&nbsp;</td>
+
+
+    </tr>
+
+    <% end %>
+     </tr>
+
+<% end %>
+
+</table>
+
+<br />
+
+ </body>
+</html>

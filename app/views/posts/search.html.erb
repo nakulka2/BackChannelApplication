@@ -1,0 +1,62 @@
+<img width="100%" src="../images/banner1.png"  border=0 />
+<h1>search results</h1>
+
+<% if params[:stype]=="user" %>
+ <% if @posts.size>0 %>
+  <h3> Posts by "<%= @user.username %>"</h3>
+        <table rules="all" style="background-color: #ffffff;">
+              <th align="center" style="background-color: #CDC3F7;">Post</th>
+                <th align="center" style="background-color: #CDC3F7;">Date</th>
+          <tr>
+
+        <% @posts.each do |post|%>
+        <td width=600><%= post.question %></td>
+         <td width=200><%= post.created_at.to_date %></td>
+        </tr>
+         <% end %>
+        </table>
+
+    <% else %>
+           Sorry No posts for such user found!!!<br>
+          <% end %>
+<% else %>
+   <% if @questions.size>0 %>
+       <h3> Questions containing <%= @search_string %></h3>
+    <table rules="all" style="background-color: #ffffff;">
+      <th align="center" style="background-color: #CDC3F7;">Post owner</th>
+      <th align="center" style="background-color: #CDC3F7;">Question</th>
+      <tr>
+    <% @questions.each do |q| %>
+
+ <td align="center" width=200> <%= q.post_owner %></td>
+ <td width=800> <%= q.question %></td>
+        </tr>
+
+     <%end%>
+        </table>
+        <br><br>
+    <% else %>
+            Sorry No questions with the given string found!!!<br>
+      <% end %>
+    <% if @replies.size>0 %>
+         <h3> Replies containing "<%= @search_string %>"</h3>
+        <table rules="all" style="background-color: #ffffff;">
+          <th align="center" style="background-color: #CDC3F7;">Replied by</th>
+          <th align="center" style="background-color: #CDC3F7;">Reply</th>
+          <tr>
+        <% @replies.each do |r| %>
+
+     <td align="center" width=200> <%= User.find(r.user_id).username %></td>
+     <td width=800> <%= r.response %></td>
+            </tr>
+
+         <%end%>
+            </table>
+            <br><br>
+        <% else %>
+          Sorry No replies with the given string found!!!<br>
+  <% end %>
+
+<% end %>
+<%= link_to 'back', posts_path %>
+

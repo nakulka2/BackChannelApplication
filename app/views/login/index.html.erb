@@ -1,0 +1,27 @@
+<img width="100%" src="../images/banner1.png"  border=0 />
+<h3>Login: </h3>
+<% if flash[:no_user] %>
+<%= flash[:message] %>
+<%=h flash[:no_user] %>
+<% elsif flash[:wrong_credentials] %>
+<%= flash[:message] %>
+<%=h flash[:wrong_credentials] %>
+<% end %>
+  <%= form_tag('/login/create') do %>
+    <p>
+        <label for="name" >Name:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+        <%= text_field_tag('userName') %>
+    </p>
+    <p>
+        <label for="password" >Password:</label>
+        <%= password_field_tag('password') %>
+    </p>
+    <p>
+        <%= submit_tag "Login" %>
+    </p>
+    <p>not a user yet?
+    <%= link_to 'register', :controller=>"users", :action=>"new" %>
+    </p>
+   <% end %>
+
+

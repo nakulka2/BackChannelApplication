@@ -1,0 +1,39 @@
+<img width="100%" src="../images/banner1.png"  border=0 />
+ <h1>Listing posts</h1>
+
+<table width=100% rules="all">
+<tr>
+<th align=center style="font-size: 15px"width=10% bgcolor="#CDC3F7">Post owner</th>
+<th align=center style="font-size: 15px"width=80% bgcolor="#CDC3F7">Question</th>
+<th align=center style="font-size: 15px"width=10% bgcolor="#CDC3F7">Links</th>
+</tr>
+
+<% @posts.each do |post| %>
+<tr>
+<td><%= post.post_owner %></td>
+<td><%= post.question %></td>
+<td><%= link_to 'Destroy', :controller => "posts", :action =>'destroy',:id=>post.id %></td>
+
+</tr>
+<tr>
+<td></td>
+<% if Reply.exists?(:post_id => post.id) %>
+<% @sel_reply = Reply.find_all_by_post_id(post.id) %>
+<td><table width=100% rules="all">
+<% for r in @sel_reply %>
+<% @user=User.find(r.user_id) %>
+<tr><td width=80%><%= @user.username%> <%= r.response %></td>
+</tr>
+<% end %>
+</table></td><td></td>
+<% end %>
+</tr>
+
+<% end %>
+
+</table>
+
+<br />
+<br/>
+<br/>
+<%= link_to 'Home', administrator_index_path %>

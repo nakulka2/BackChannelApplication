@@ -1,0 +1,28 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/Fixtures.html
+
+one:
+  username: "userrrr"
+  password: "hdgfksgk"
+  email: "jkhfjlshf.jhs"
+  user_type: "user"
+
+two:
+  username: "munawira"
+  password: "koerrsd"
+  email: "munawira@gmail.com"
+  #user_type: voter
+
+admin:
+  username: "admin"
+  password: "adminadmin"
+  email: "admin@admin.com"
+  user_type: "admin"
+
+
+#<%(1..50).each do |i|%>
+#fix_<%= i%>
+#username: name
+#password: pwd<%= i%>
+#email: mail_<%= i%>
+#user_type: type_<%= i%>
+#<%end%>

@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+<b>Post owner:</b>
+<%= @post.post_owner %>
+</p>
+
+<p>
+<b>Question:</b>
+<%= @post.question %>
+</p>
+
+
+<%= link_to 'Edit', edit_post_path(@post) %> |
+<%= link_to 'View posts', posts_path %>

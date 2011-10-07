@@ -1,0 +1,13 @@
+<img width="100%" src="../images/banner1.png"  border=0 />
+<table>
+<tr><td><%= link_to "Create admin account", new_user_path %></td></tr>
+<tr><td><%= link_to "Delete user", users_path %></tr></td>
+<tr><td><%= link_to "Delete Post", post_manage_posts_path %></tr></td>
+<tr><td><%= link_to 'Posts', posts_path %></tr></td>
+<tr><td><%= link_to 'Stats', users_stats_path %></tr></td>
+</table>
+<br/>
+<br/>
+<table>
+  <tr><td><%= link_to 'Logout', :controller=>'logout', :action=>'index' %></tr></td>
+</table>
