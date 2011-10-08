@@ -36,10 +36,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.html.erb" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="index.html.erb" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/views/posts/index.html.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="45" column="11" selection-start="1236" selection-end="1236" vertical-scroll-proportion="-5.8846154">
+            <state line="50" column="40" selection-start="1350" selection-end="1350" vertical-scroll-proportion="0.8717949">
               <folding />
             </state>
           </provider>
@@ -81,10 +81,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.html.erb" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="index.html.erb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/administrator/index.html.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="7" column="94" selection-start="395" selection-end="395" vertical-scroll-proportion="0.4160839">
+            <state line="7" column="94" selection-start="395" selection-end="395" vertical-scroll-proportion="-4.576923">
               <folding />
             </state>
           </provider>
@@ -119,10 +119,10 @@
         <option value="$PROJECT_DIR$/app/views/users/stats.html.erb" />
         <option value="$PROJECT_DIR$/app/views/administrator/stats.html.erb" />
         <option value="$PROJECT_DIR$/app/views/login/index.html.erb" />
-        <option value="$PROJECT_DIR$/app/views/posts/index.html.erb" />
         <option value="$PROJECT_DIR$/Gemfile" />
         <option value="$PROJECT_DIR$/config/environments/production.rb" />
         <option value="$PROJECT_DIR$/app/views/administrator/index.html.erb" />
+        <option value="$PROJECT_DIR$/app/views/posts/index.html.erb" />
       </list>
     </option>
   </component>
@@ -830,16 +830,16 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/posts/index.html.erb">
+    <entry file="file://$PROJECT_DIR$/app/views/administrator/index.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="45" column="11" selection-start="1236" selection-end="1236" vertical-scroll-proportion="-5.8846154">
+        <state line="7" column="94" selection-start="395" selection-end="395" vertical-scroll-proportion="-4.576923">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/administrator/index.html.erb">
+    <entry file="file://$PROJECT_DIR$/app/views/posts/index.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="94" selection-start="395" selection-end="395" vertical-scroll-proportion="0.4160839">
+        <state line="50" column="40" selection-start="1350" selection-end="1350" vertical-scroll-proportion="0.8717949">
           <folding />
         </state>
       </provider>
